@@ -523,6 +523,7 @@ body {
         <option value="10">11</option>
         <option value="11">12</option>
         <option value="12">13</option>
+        <option value="13">14</option>
     </select>
 </div>
 
@@ -577,7 +578,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">1 / 13</span>
+            <span class="page-number">1 / 14</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -713,7 +714,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">2 / 13</span>
+            <span class="page-number">2 / 14</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -826,7 +827,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">3 / 13</span>
+            <span class="page-number">3 / 14</span>
 
             <button
                 class="next-button"
@@ -910,7 +911,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">4 / 13</span>
+            <span class="page-number">4 / 14</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -1068,7 +1069,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">5 / 13</span>
+            <span class="page-number">5 / 14</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -1206,7 +1207,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">6 / 13</span>
+            <span class="page-number">6 / 14</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -1307,7 +1308,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">7 / 13</span>
+            <span class="page-number">7 / 14</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section>
@@ -1331,7 +1332,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">8 / 13</span>
+            <span class="page-number">8 / 14</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section>
@@ -1364,7 +1365,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">9 / 13</span>
+            <span class="page-number">9 / 14</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section><section class="scene" data-bgm="bgm/scene09.mp3">
@@ -1404,7 +1405,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">10 / 13</span>
+            <span class="page-number">10 / 14</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section>
@@ -1419,7 +1420,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">11 / 13</span>
+            <span class="page-number">11 / 14</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section>
@@ -1436,17 +1437,32 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">12 / 13</span>
+            <span class="page-number">12 / 14</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section>
 
 
     <!-- =========================
-         ページ13：クレジット
+         ページ13：タイトル
     ========================= -->
 
-    <section class="scene credits-screen" data-bgm="bgm/scene10.mp3">
+    <section class="scene intermission-screen" data-no-bgm="true">
+        <div class="scene-content">
+            <h1 class="intermission-title">パラダイス・ロスト</h1>
+        </div>
+        <div class="navigation">
+            <button class="prev-button" type="button">← 戻る</button>
+            <span class="page-number">13 / 14</span>
+            <button class="next-button" type="button">次へ →</button>
+        </div>
+    </section>
+
+    <!-- =========================
+         ページ14：クレジット
+    ========================= -->
+
+    <section class="scene credits-screen" data-no-bgm="true">
         <div class="scene-content">
             <p class="credit-title">クレジット</p>
 
@@ -1482,7 +1498,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">13 / 13</span>
+            <span class="page-number">14 / 14</span>
             <button class="next-button" type="button" disabled>次へ →</button>
         </div>
     </section>
@@ -1697,22 +1713,6 @@ let bgmSource = null;
 let bgmGainNode = null;
 let useWebAudio = false;
 let audioSetupAttempted = false;
-function getBgmVolume() {
-    const sourceUrl = new URL(bgm.src, document.baseURI);
-    return sourceUrl.pathname.endsWith("/scene10.mp3")
-        ? 1.0
-        : BGM_VOLUME;
-}
-
-function applyBgmVolume() {
-    const volume = getBgmVolume();
-
-    if (useWebAudio && bgmGainNode) {
-        bgmGainNode.gain.value = volume;
-    } else {
-        bgm.volume = volume;
-    }
-}
 
 
 function setupBgmAudio() {
@@ -1727,7 +1727,7 @@ function setupBgmAudio() {
         window.AudioContext || window.webkitAudioContext;
 
     if (isLocalFile || !AudioContextClass) {
-        bgm.volume = getBgmVolume();
+        bgm.volume = BGM_VOLUME;
         useWebAudio = false;
         return;
     }
@@ -1737,7 +1737,7 @@ function setupBgmAudio() {
         bgmSource = audioContext.createMediaElementSource(bgm);
         bgmGainNode = audioContext.createGain();
 
-        bgmGainNode.gain.value = getBgmVolume();
+        bgmGainNode.gain.value = BGM_VOLUME;
         bgmSource.connect(bgmGainNode);
         bgmGainNode.connect(audioContext.destination);
 
@@ -1752,7 +1752,7 @@ function setupBgmAudio() {
         audioContext = null;
         bgmSource = null;
         bgmGainNode = null;
-        bgm.volume = getBgmVolume();
+        bgm.volume = BGM_VOLUME;
         useWebAudio = false;
     }
 }
@@ -1828,7 +1828,7 @@ function changeBgm(newBgm) {
 
     bgm.pause();
     bgm.src = newBgmUrl;
-    applyBgmVolume();
+    bgm.loop = !new URL(newBgmUrl).pathname.endsWith("/scene10.mp3");
     bgm.currentTime = 0;
 
     if (shouldPlay) {
@@ -1864,7 +1864,14 @@ function showScene(index) {
     const newBgm = scenes[index].dataset.bgm;
 
     if (newBgm) {
+        bgmButton.hidden = false;
         changeBgm(newBgm);
+    } else if (scenes[index].dataset.noBgm === "true") {
+        bgm.pause();
+        bgm.currentTime = 0;
+        bgmEnabled = false;
+        updateBgmButton();
+        bgmButton.hidden = true;
     }
 
     window.scrollTo({
