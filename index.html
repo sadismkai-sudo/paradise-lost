@@ -1713,6 +1713,22 @@ let bgmSource = null;
 let bgmGainNode = null;
 let useWebAudio = false;
 let audioSetupAttempted = false;
+function getCurrentBgmVolume() {
+    const sourceUrl = new URL(bgm.src, document.baseURI);
+    return sourceUrl.pathname.endsWith("/scene10.mp3")
+        ? 1.0
+        : BGM_VOLUME;
+}
+
+function applyCurrentBgmVolume() {
+    const volume = getCurrentBgmVolume();
+
+    if (useWebAudio && bgmGainNode) {
+        bgmGainNode.gain.value = volume;
+    } else {
+        bgm.volume = volume;
+    }
+}
 
 
 function setupBgmAudio() {
@@ -1727,7 +1743,7 @@ function setupBgmAudio() {
         window.AudioContext || window.webkitAudioContext;
 
     if (isLocalFile || !AudioContextClass) {
-        bgm.volume = BGM_VOLUME;
+        bgm.volume = getCurrentBgmVolume();
         useWebAudio = false;
         return;
     }
@@ -1737,7 +1753,7 @@ function setupBgmAudio() {
         bgmSource = audioContext.createMediaElementSource(bgm);
         bgmGainNode = audioContext.createGain();
 
-        bgmGainNode.gain.value = BGM_VOLUME;
+        bgmGainNode.gain.value = getCurrentBgmVolume();
         bgmSource.connect(bgmGainNode);
         bgmGainNode.connect(audioContext.destination);
 
@@ -1752,7 +1768,7 @@ function setupBgmAudio() {
         audioContext = null;
         bgmSource = null;
         bgmGainNode = null;
-        bgm.volume = BGM_VOLUME;
+        bgm.volume = getCurrentBgmVolume();
         useWebAudio = false;
     }
 }
@@ -1828,6 +1844,7 @@ function changeBgm(newBgm) {
 
     bgm.pause();
     bgm.src = newBgmUrl;
+    applyCurrentBgmVolume();
     bgm.loop = !new URL(newBgmUrl).pathname.endsWith("/scene10.mp3");
     bgm.currentTime = 0;
 
