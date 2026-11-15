@@ -404,6 +404,78 @@ body {
     }
 }
 
+
+
+/* 11ページ目の中央タイトル */
+.intermission-screen .scene-content {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.intermission-title {
+    margin: 0;
+    color: #f4eee4;
+    font-family: inherit;
+    font-size: clamp(1.45rem, 7vw, 3.2rem);
+    font-weight: normal;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .intermission-screen .scene-content {
+        height: calc(100vh - 240px);
+        min-height: 250px;
+    }
+}
+/* クレジット画面 */
+.credits-screen .scene-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8em;
+    padding: 0.8em 1em;
+    line-height: 1.8;
+}
+
+.credit-section {
+    padding-inline-start: 0.7em;
+    border-inline-start: 1px solid #594966;
+}
+
+.credit-title {
+    color: #f4eee4;
+    font-size: 1.25rem;
+    letter-spacing: 0.18em;
+    margin-block-end: 1em !important;
+}
+
+.credit-heading {
+    color: #c9b9d5;
+    font-size: 0.95rem;
+    font-weight: normal;
+    letter-spacing: 0.12em;
+    margin-block: 0 0.8em !important;
+}
+
+.credit-entry {
+    margin-block: 0 0.55em !important;
+}
+
+
+.credit-note {
+    color: #aaa;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    margin-block: 0.8em 0 !important;
+}
 </style>
 </head>
 
@@ -448,6 +520,8 @@ body {
         <option value="7">8</option>
         <option value="8">9</option>
         <option value="9">10</option>
+        <option value="10">11</option>
+        <option value="11">12</option>
     </select>
 </div>
 
@@ -502,7 +576,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">1 / 10</span>
+            <span class="page-number">1 / 12</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -638,7 +712,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">2 / 10</span>
+            <span class="page-number">2 / 12</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -751,7 +825,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">3 / 10</span>
+            <span class="page-number">3 / 12</span>
 
             <button
                 class="next-button"
@@ -835,7 +909,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">4 / 10</span>
+            <span class="page-number">4 / 12</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -993,7 +1067,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">5 / 10</span>
+            <span class="page-number">5 / 12</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -1131,7 +1205,7 @@ body {
                 ← 戻る
             </button>
 
-            <span class="page-number">6 / 10</span>
+            <span class="page-number">6 / 12</span>
 
             <button class="next-button" type="button">
                 次へ →
@@ -1232,7 +1306,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">7 / 10</span>
+            <span class="page-number">7 / 12</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section>
@@ -1256,7 +1330,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">8 / 10</span>
+            <span class="page-number">8 / 12</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section>
@@ -1289,7 +1363,7 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">9 / 10</span>
+            <span class="page-number">9 / 12</span>
             <button class="next-button" type="button">次へ →</button>
         </div>
     </section><section class="scene" data-bgm="bgm/scene09.mp3">
@@ -1332,7 +1406,68 @@ body {
         </div>
         <div class="navigation">
             <button class="prev-button" type="button">← 戻る</button>
-            <span class="page-number">10 / 10</span>
+            <span class="page-number">10 / 12</span>
+            <button class="next-button" type="button">次へ →</button>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         ページ11：背景とBGMのみ
+    ========================= -->
+
+    <section class="scene intermission-screen" data-bgm="bgm/scene10.mp3">
+        <div class="scene-content">
+            <h1 class="intermission-title">パラダイス・ロスト</h1>
+        </div>
+        <div class="navigation">
+            <button class="prev-button" type="button">← 戻る</button>
+            <span class="page-number">11 / 12</span>
+            <button class="next-button" type="button">次へ →</button>
+        </div>
+    </section>
+
+    <!-- =========================
+         ページ12：クレジット
+    ========================= -->
+
+    <section class="scene credits-screen" data-bgm="bgm/scene10.mp3">
+        <div class="scene-content">
+            <p class="credit-title">クレジット</p>
+
+            <section class="credit-section">
+                <h2 class="credit-heading">【原作者】</h2>
+                <p class="credit-entry">雨津庵</p>
+            </section>
+
+            <section class="credit-section">
+                <h2 class="credit-heading">【キャスト】</h2>
+                <p class="credit-entry">男　　佐渡快</p>
+                <p class="credit-entry">おじさん　　中村宏平</p>
+            </section>
+
+            <section class="credit-section">
+                <h2 class="credit-heading">【音楽】</h2>
+                <p class="credit-entry">『アンドロイドは眠らない』</p>
+                <p class="credit-entry">作：<span class="vertical-english">Heitaro Ashibe</span></p>
+            </section>
+
+            <section class="credit-section">
+                <h2 class="credit-heading">【BGM・SE】</h2>
+                <p class="credit-entry"><span class="vertical-english">Sound Dino</span></p>
+                <p class="credit-entry">無料効果音で遊ぼう！</p>
+                <p class="credit-entry">効果音辞典</p>
+                <p class="credit-entry"><span class="vertical-english">VSQplus+</span></p>
+                <p class="credit-entry"><span class="vertical-english">OtoLogic</span></p>
+                <p class="credit-entry">効果音ラボ</p>
+                <p class="credit-entry">ポケットサウンド</p>
+            </section>
+        
+            <p class="credit-note">サイト設計、レイアウトデザインに<span class="vertical-english">AI</span>技術を使用しています</p>
+        </div>
+        <div class="navigation">
+            <button class="prev-button" type="button">← 戻る</button>
+            <span class="page-number">12 / 12</span>
             <button class="next-button" type="button" disabled>次へ →</button>
         </div>
     </section>
@@ -1739,6 +1874,11 @@ updateBgmButton();
 
 </body>
 </html>
+
+
+
+
+
 
 
 
