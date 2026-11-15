@@ -534,7 +534,7 @@ body {
          タイトル画面
     ========================= -->
 
-    <section class="scene title-screen active">
+    <section class="scene title-screen active" data-no-bgm="true">
 
         <div class="scene-content">
 
@@ -1924,6 +1924,10 @@ pageJumpSelect.addEventListener("change", function() {
 
 /* 初期状態のボタン表示 */
 updateBgmButton();
+
+if (scenes[currentScene].dataset.noBgm === "true") {
+    bgmButton.hidden = true;
+}
 
 </script>
 
